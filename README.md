@@ -18,11 +18,11 @@ A custom title page      |  A basic example page
 2. Download the latest version of the eisvogel-physics template from [the release page](https://github.com/cheshyre/eisvogel-physics/releases/latest).
 3. Extract the downloaded ZIP archive and open the folder.
 4. Move the template `eisvogel-physics.tex` to your pandoc templates folder and rename the file to `eisvogel-physics.latex`. The location of the templates folder depends on your operating system:
-	- Unix, Linux, macOS: `$XDG_DATA_HOME/pandoc/templates` or `~/.pandoc/templates/`
-	- Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc\templates`
-	- Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates`
+    - Unix, Linux, macOS: `$XDG_DATA_HOME/pandoc/templates` or `~/.pandoc/templates/`
+    - Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc\templates`
+    - Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates`
 
-	If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel-physics.latex` inside.
+    If there are no folders called `templates` or `pandoc` you need to create them and put the template `eisvogel-physics.latex` inside.
 
 Alternatively, you can simply include the `eisvogel-physics.tex` file in your working directory
 and reference the template by the path to the file instead of its name.
@@ -40,9 +40,9 @@ and reference the template by the path to the file instead of its name.
 
 If you chose not to save the file in a template directory, you can still use the template via:
 
-	```bash
-    pandoc example.md -o example.pdf --from markdown --template /path/to/eisvogel-physics.tex --listings
-	```
+```bash
+pandoc example.md -o example.pdf --from markdown --template /path/to/eisvogel-physics.tex --listings
+```
 
 In order to have nice headers and footers you need to supply metadata to your document. You can do that with a [YAML metadata block](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block) at the top of your markdown document (see the [example markdown file](examples/basic-example/basic-example.md)). Your markdown document may look like the following:
 
@@ -93,38 +93,38 @@ This template defines some new variables to control the appearance of the result
     avoid page break inside listings
 - `disable-header-and-footer` (default to `false`)
 
-	disables the header and footer completely on all pages
+    disables the header and footer completely on all pages
 - `header-left` (defaults to the title)
 
-	the text on the left side of the header
+    the text on the left side of the header
 - `header-center`
 
-	the text in the center of the header
+    the text in the center of the header
 - `header-right` (defaults to the date)
 
-	the text on the right side of the header
+    the text on the right side of the header
 - `footer-left` (defaults to the author)
 
-	the text on the left side of the footer
+    the text on the left side of the footer
 - `footer-center`
 
-	the text in the center of the footer
+    the text in the center of the footer
 - `footer-right` (defaults to the page number)
 
-	the text on the right side of the footer
+    the text on the right side of the footer
 - `book` (defaults to `false`)
 
-	typeset as book
+    typeset as book
 - `logo`
 
-	path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
+    path to an image that will be displayed on the title page. The path is always relative to where pandoc is executed. The option `--resource-path` has no effect.
 - `logo-width` (defaults to `100`)
 
-	the width of the logo (in points)
+    the width of the logo (in points)
 
 - `first-chapter` (defaults to `1`)
 
-	if typesetting a book with chapter numbers, specifies the number that will be assigned to the first chapter
+    if typesetting a book with chapter numbers, specifies the number that will be assigned to the first chapter
 
 - `float-placement-figure` (defaults to `H`)
 
