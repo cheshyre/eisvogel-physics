@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/cheshyre/eisvogel-physics/releases/) you can see all released versions of the eisvogel-physics template and download the [latest version](https://github.com/cheshyre/eisvogel-physics/releases/latest).
 
+## [1.2.4b] - 2019-09-20
+
+* Changed: Added `physics` and `mathtools` package to list for physics support.
+* Changed: Modified default text font from Source Sans Pro to Latin Modern.
+
 **Notice: fork occurred at this version. After this point, the forks changes were introduced and updates are continually merged to offer improved support.**
 
 ## [1.2.4] - 2019-06-16
