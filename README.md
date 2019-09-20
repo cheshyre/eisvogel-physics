@@ -2,7 +2,7 @@
 
 # eisvogel-physics
 
-**This is a fork of the [original eisvogel-physics template](https://github.com/Wandmalfarbe/pandoc-latex-template).**
+**This is a fork of the [original eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template).**
 
 A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on physics. The template is compatible with pandoc 2.
 
