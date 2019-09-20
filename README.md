@@ -219,6 +219,8 @@ A book | Code blocks styled with listings
 
 ## Credits
 
+* This template was forked from the original [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template), which is maintained by [Pascal Wagler](https://github.com/Wandmalfarbe).
+* New developments from the original template are routinely merged into this project.
 - This template includes code for styling block quotations from [pandoc-letter](https://github.com/aaronwolen/pandoc-letter) by [Aaron Wolen](https://github.com/aaronwolen).
 
 ## License
