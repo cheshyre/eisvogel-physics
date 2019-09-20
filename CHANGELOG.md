@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/) you can see all released versions of the Eisvogel template and download the [latest version](https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest).
+All notable changes to this project are documented in this file. On the [releases page](https://github.com/cheshyre/eisvogel-physics/releases/) you can see all released versions of the eisvogel-physics template and download the [latest version](https://github.com/cheshyre/eisvogel-physics/releases/latest).
+
+**Notice: fork occurred at this version. After this point, the forks changes were introduced and updates are continually merged to offer improved support.**
 
 ## [1.2.4] - 2019-06-16
 
@@ -43,10 +45,10 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
-[1.2.4]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.3...v1.2.4
-[1.2.3]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.2...v1.2.3
-[1.2.2]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.1...v1.2.2
-[1.2.1]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.2.0...v1.2.1
-[1.2.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/1.1.0...v1.2.0
-[1.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.0.0...1.1.0
-[1.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/releases/tag/v1.0.0
+[1.2.4]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.3...v1.2.4
+[1.2.3]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.2...v1.2.3
+[1.2.2]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.1...v1.2.2
+[1.2.1]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/cheshyre/eisvogel-physics/compare/1.1.0...v1.2.0
+[1.1.0]: https://github.com/cheshyre/eisvogel-physics/compare/v1.0.0...1.1.0
+[1.0.0]: https://github.com/cheshyre/eisvogel-physics/releases/tag/v1.0.0
