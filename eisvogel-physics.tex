@@ -249,6 +249,14 @@ $endif$
 \definecolor{default-citecolor}{HTML}{4077C0}
 \definecolor{default-urlcolor}{HTML}{4077C0}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+$if(footnotes-pretty)$
+% load footmisc in order to customize footnotes (footmisc has to be loaded before hyperref, cf. https://tex.stackexchange.com/a/169124/144087)
+\usepackage[hang,flushmargin,bottom,multiple]{footmisc}
+\setlength{\footnotemargin}{0.8em} % set space between footnote nr and text
+\setlength{\footnotesep}{\baselineskip} % set space between multiple footnotes
+\setlength{\skip\footins}{0.3cm} % set space between page content and footnote
+\setlength{\footskip}{0.9cm} % set space between footnote and page bottom
+$endif$
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
 $if(title-meta)$
@@ -282,12 +290,11 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
 $if(geometry)$
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$if(beamer)$
+\geometry{margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$}
 $else$
-  $if(beamer)$
-  $else$
-  \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
-  $endif$
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
 $endif$
 $if(logo)$
 \usepackage[export]{adjustbox}
@@ -321,7 +328,7 @@ $highlighting-macros$
 % the help of fvextra). Redefinition is necessary because it is unlikely that
 % pandoc includes fvextra in the default template.
 \usepackage{fvextra}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=$if(code-block-font-size)$$code-block-font-size$$else$\small$endif$,commandchars=\\\{\}}
 
 $endif$
 $if(tables)$
@@ -342,6 +349,11 @@ $else$
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 $endif$
+$endif$
+% add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+$if(footnotes-disable-backlinks)$
+$else$
+\usepackage{footnotebackref}
 $endif$
 $if(graphics)$
 \usepackage{graphicx,grffile}
@@ -440,6 +452,14 @@ $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
@@ -516,6 +536,10 @@ $if(titlepage)$
 $if(titlepage-background)$
 \usepackage{tikz}
 $endif$
+$if(geometry)$
+$else$
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+$endif$
 $endif$
 
 %
@@ -558,32 +582,40 @@ $endif$
 % 'default' option sets the default
 % font family to Source Sans Pro, not \sfdefault.
 %
-$if(mainfont)$
-$else$
-% \usepackage[default]{sourcesanspro}
-\usepackage{lmodern}
-\usepackage{sourcesanspro}
-\usepackage{sourcecodepro}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  $if(fontfamily)$
+  $else$
+  \usepackage{lmodern}
+  \usepackage{sourcesanspro}
+  \usepackage{sourcecodepro}
+  $endif$
+\else % if not pdftex
+  $if(mainfont)$
+  $else$
+  \usepackage{lmodern}
+  \usepackage{sourcesanspro}
+  \usepackage{sourcecodepro}
 
-% XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
-% This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the
-% fix is still unreleased.
-% TODO: Remove this workaround when the new version of sourcecodepro is released on CTAN.
-\ifxetex
-\makeatletter
-\defaultfontfeatures[\ttfamily]
-  { Numbers   = \sourcecodepro@figurestyle,
-    Scale     = \SourceCodePro@scale,
-    Extension = .otf }
-\setmonofont
-  [ UprightFont    = *-\sourcecodepro@regstyle,
-    ItalicFont     = *-\sourcecodepro@regstyle It,
-    BoldFont       = *-\sourcecodepro@boldstyle,
-    BoldItalicFont = *-\sourcecodepro@boldstyle It ]
-  {SourceCodePro}
-\makeatother
+  % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
+  % This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the
+  % fix is still unreleased.
+  % TODO: Remove this workaround when the new version of sourcecodepro is released on CTAN.
+  \ifxetex
+    \makeatletter
+    \defaultfontfeatures[\ttfamily]
+      { Numbers   = \sourcecodepro@figurestyle,
+        Scale     = \SourceCodePro@scale,
+        Extension = .otf }
+    \setmonofont
+      [ UprightFont    = *-\sourcecodepro@regstyle,
+        ItalicFont     = *-\sourcecodepro@regstyle It,
+        BoldFont       = *-\sourcecodepro@boldstyle,
+        BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+      {SourceCodePro}
+    \makeatother
+  \fi
+  $endif$
 \fi
-$endif$
 
 %
 % heading color
@@ -683,7 +715,7 @@ $else$
   framexleftmargin = 2.5em,
 $endif$
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\linespread{1.0}\small\ttfamily{},
+  basicstyle       = \color{listing-text-color}\linespread{1.0}$if(code-block-font-size)$$code-block-font-size$$else$\small$endif$\ttfamily{},
   breaklines       = true,
   frame            = single,
   framesep         = 0.19em,
