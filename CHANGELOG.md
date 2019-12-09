@@ -9,6 +9,10 @@ All notable changes to this project are documented in this file. On the [release
 
 **Notice: fork occurred at this version. After this point, the forks changes were introduced and updates are continually merged to offer improved support.**
 
+## [1.3.1] - 2019-12-08
+
+- Fixed wrong margins when not using the titlepage option (#135).
+
 ## [1.3.0] - 2019-10-26
 
 - Clarified the location of the pandoc templates directory in the readme.
@@ -67,6 +71,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.3.1]: https://github.com/cheshyre/eisvogel-physics/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.4...v1.3.0
 [1.2.4]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.2...v1.2.3
