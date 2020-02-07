@@ -2,12 +2,15 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/cheshyre/eisvogel-physics/releases/) you can see all released versions of the eisvogel-physics template and download the [latest version](https://github.com/cheshyre/eisvogel-physics/releases/latest).
 
-## [1.2.4b] - 2019-09-20
+## [1.4.0] - 2020-02-02
 
-* Changed: Added `physics` and `mathtools` package to list for physics support.
-* Changed: Modified default text font from Source Sans Pro to Latin Modern.
-
-**Notice: fork occurred at this version. After this point, the forks changes were introduced and updates are continually merged to offer improved support.**
+- Added support for a page background (#138, evildead).
+    - The variable `page-background` specifies the path to a background image for any page. The background image is scaled to cover the entire page.
+    - The variable `page-background-opacity` specifies the background image opacity.
+- Added an example on how to generate admonition boxes (#115). The example demonstrates the use of the filter `pandoc-latex-environments` to create custom admonition boxes with the `awesomebox` package.
+- Added an example on how to compile Chinese documents (#140).
+- Added a section on *required LaTeX packages* to the readme (#141). The section explains how to install the required packages with TeX Live and MiKtEX.
+- Corrected the command `tlmgr` in `README.md` (#143).
 
 ## [1.3.1] - 2019-12-08
 
@@ -29,6 +32,13 @@ All notable changes to this project are documented in this file. On the [release
 - Updated listings definition for Java which is the default language when using listings. This means that more keywords such as `var` from Java 10 are highlighted.
 - Added support for additional keyword colors when using `listings` for syntax highlighting. The support depends on the used language. Some languages like `motorola68k`, `x86masm`, `inform`, `llvm`, `lua`, `metapost`, `mupad`, `ocl`, `python`, `verrilog`, `basic`, `cil`, `fortran` and `hansl` will have additional colors for some keywords.
 - Fixed: Long lines in code blocks (verbatim environment) wrap automatically (#2).
+
+## [1.2.4b] - 2019-09-20
+
+* Changed: Added `physics` and `mathtools` package to list for physics support.
+* Changed: Modified default text font from Source Sans Pro to Latin Modern.
+
+**Notice: fork occurred at this version. After this point, the forks changes were introduced and updates are continually merged to offer improved support.**
 
 ## [1.2.4] - 2019-06-16
 
@@ -71,6 +81,7 @@ All notable changes to this project are documented in this file. On the [release
 
 - First release of the template as a ZIP file with the examples.
 
+[1.4.0]: https://github.com/cheshyre/eisvogel-physics/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/cheshyre/eisvogel-physics/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.4...v1.3.0
 [1.2.4]: https://github.com/cheshyre/eisvogel-physics/compare/v1.2.3...v1.2.4

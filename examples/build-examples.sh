@@ -11,6 +11,12 @@ echo "- header-and-footer"
 pandoc "header-and-footer/header-and-footer.md" -o "header-and-footer/header-and-footer.pdf" --from markdown --template "../eisvogel-physics.latex" --listings --resource-path "./header-and-footer/"
 pdftoppm -r 150 -png "header-and-footer/header-and-footer.pdf" > "header-and-footer/header-and-footer.png"
 
+echo "- page-background"
+cd "page-background"
+pandoc "page-background.md" -o "page-background.pdf" --from markdown --template "../../eisvogel-physics.latex" --listings
+pdftoppm -r 150 -png "page-background.pdf" > "page-background.png"
+cd ".."
+
 echo "- titlepage-background"
 cd "titlepage-background"
 pandoc "titlepage-background.md" -o "titlepage-background.pdf" --from markdown --template "../../eisvogel-physics.latex" --listings
@@ -41,8 +47,7 @@ echo "- german"
 pandoc "german/german.md" -o "german/german.pdf" --from markdown --template "../eisvogel-physics.latex" --highlight-style kate
 pdftoppm -r 150 -png "german/german.pdf" > "german/german.png"
 
-# No lang option (-V lang=jp) here because it's
-# unspported in XeLaTeX (in polyglossia).
+# No lang option (-V lang=jp) here because Japanese unsupported in polyglossia.
 # These commands are disabled because the CJK font isn't available on travis.
 #pandoc "japanese/japanese.md" -o "japanese/japanese.pdf" --from markdown --template "../eisvogel-physics.latex" --listings --pdf-engine=xelatex -V lang=en-us -V CJKmainfont="HiraginoSans-W4"
 #pdftoppm -r 150 -png "japanese/japanese.pdf" > "japanese/japanese.png"
@@ -63,6 +68,15 @@ echo "- book"
 # Additional options like `book: true` and `classoption: [oneside]` are set in the markdown file via the YAML metadata block.
 pandoc "book/book.md" -o "book/book.pdf" --from markdown --template "../eisvogel-physics.latex" --listings --top-level-division="chapter"
 pdftoppm -r 150 -png "book/book.pdf" > "book/book.png"
+
+# echo "- boxes-with-pandoc-latex-environment-and-awesomebox"
+# pandoc "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.md" -o "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" --from markdown --template "../eisvogel-physics.latex" --filter pandoc-latex-environment --listings
+# pdftoppm -r 150 -png "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.pdf" > "boxes-with-pandoc-latex-environment-and-awesomebox/boxes.png"
+
+# No lang option (-V lang=zh) here because Chinese is unsupported in polyglossia and babel.
+# These commands are disabled because the CJK font isn't available on travis.
+#pandoc "chinese/chinese.md" -o "chinese/chinese.pdf" --from markdown --template "../eisvogel-physics.latex" --listings --pdf-engine=xelatex -V CJKmainfont="HiraginoSans-W4"
+#pdftoppm -r 150 -png "chinese/chinese.pdf" > "chinese/chinese.png"
 
 echo "- images-and-tables"
 pandoc "images-and-tables/images-and-tables.md" -o "images-and-tables/images-and-tables.pdf" --from markdown --template "../eisvogel-physics.latex" --listings --resource-path "./images-and-tables/"
