@@ -4,6 +4,8 @@
 
 **This is a fork of the [original eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template).**
 
+**This fork will no longer be kept up-to-date with the upstream eisvogel template.**
+
 A clean **pandoc LaTeX template** to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on physics. The template is compatible with pandoc 2.
 
 ## Preview
@@ -331,7 +333,6 @@ There will be one blank page before each chapter because the template is two-sid
 ## Credits
 
 * This template was forked from the original [Eisvogel template](https://github.com/Wandmalfarbe/pandoc-latex-template), which is maintained by [Pascal Wagler](https://github.com/Wandmalfarbe).
-* New developments from the original template are routinely merged into this project.
 - This template includes code for styling block quotations from [pandoc-letter](https://github.com/aaronwolen/pandoc-letter) by [Aaron Wolen](https://github.com/aaronwolen).
 
 ## License
